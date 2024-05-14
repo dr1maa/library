@@ -1,7 +1,10 @@
 package com.example.library.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "book_genre")
 public class BookGenre {

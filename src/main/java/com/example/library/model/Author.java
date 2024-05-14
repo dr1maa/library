@@ -1,9 +1,12 @@
 package com.example.library.model;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "author")
 public class Author {
@@ -17,7 +20,4 @@ public class Author {
     private String nationality;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books;
-
-
-
 }
