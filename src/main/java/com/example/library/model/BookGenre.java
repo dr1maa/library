@@ -16,5 +16,4 @@ public class BookGenre {
     private Integer bookId;
     @Column(name = "genre_id")
     private Integer genreId;
-
 }
