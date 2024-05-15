@@ -4,6 +4,7 @@ package com.example.library.service;
 import com.example.library.model.Author;
 import com.example.library.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,17 +31,32 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author createAuthor(Author author) {
-        return authorRepository.save(author);
+        try {
+
+            return authorRepository.save(author);
+        } catch (DataAccessException e) {
+            throw new RuntimeException("Failed to create Author" + e.getMessage());
+        }
     }
 
     @Override
     public Author updateAuthor(Integer id, Author authorDetails) {
-        authorDetails.setAuthorId(id);
-        return authorRepository.save(authorDetails);
+        try {
+            authorDetails.setAuthorId(id);
+            return authorRepository.save(authorDetails);
+        } catch (DataAccessException e) {
+            throw new RuntimeException("Failed to update Author" + e.getMessage());
+        }
     }
 
     @Override
     public void deleteAuthor(Integer id) {
-        authorRepository.deleteById(id);
+        try {
+            authorRepository.deleteById(id);
+        } catch (
+                DataAccessException e
+        ) {
+            throw new RuntimeException("Failed to delete Author " + e.getMessage());
+        }
     }
 }
