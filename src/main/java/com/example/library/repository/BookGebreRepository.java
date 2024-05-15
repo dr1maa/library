@@ -1,4 +1,6 @@
 package com.example.library.repository;
 
-public interface BookGebreRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookGebreRepository  {
 }

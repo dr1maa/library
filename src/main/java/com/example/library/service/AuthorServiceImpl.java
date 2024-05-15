@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AuthorServiceImpl {
+public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
     @Autowired
@@ -18,23 +18,28 @@ public class AuthorServiceImpl {
         this.authorRepository = authorRepository;
     }
 
+    @Override
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();
     }
 
+    @Override
     public Optional<Author> getAuthorById(Integer id) {
         return authorRepository.findById(id);
     }
 
+    @Override
     public Author createAuthor(Author author) {
         return authorRepository.save(author);
     }
 
+    @Override
     public Author updateAuthor(Integer id, Author authorDetails) {
         authorDetails.setAuthorId(id);
         return authorRepository.save(authorDetails);
     }
 
+    @Override
     public void deleteAuthor(Integer id) {
         authorRepository.deleteById(id);
     }
