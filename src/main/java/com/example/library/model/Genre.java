@@ -16,7 +16,6 @@ public class Genre {
     private Integer genreId;
     @Column(name = "genre_name")
     private String genreName;
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "genre")
     private List<Book> books;
-
 }

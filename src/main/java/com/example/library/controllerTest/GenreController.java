@@ -1,4 +1,4 @@
-package com.example.library.controller;
+package com.example.library.controllerTest;
 
 import com.example.library.model.Genre;
 import com.example.library.service.GenreService;
